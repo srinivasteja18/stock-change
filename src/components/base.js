@@ -37,6 +37,7 @@ export default function Base() {
       .catch((err) => {
         console.log(err);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array means this effect runs only once, on component mount
 
   // useEffect to update currentData when the page changes
@@ -44,6 +45,7 @@ export default function Base() {
     setCurrentData(
       data.slice((page - 1) * perPage, (page - 1) * perPage + perPage)
     ); // Update the currentData when the page changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]); // This effect depends on the 'page' state variable
 
   const baseCard = () => (

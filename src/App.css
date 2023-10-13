@@ -1,38 +1,135 @@
-.App {
+
+:root{
+  --main-bg-color: rgb(34, 34, 54);
+  --main-text-color: white;
+  --card-bg-color:rgb(29, 29, 52);
+  --border-bg-color: rgb(105, 101, 101);
+  --button-bg-color: rgb(255, 255, 255);
+  --blocked-bg-color: rgb(102, 117, 132);
+  --font-global: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body{
+  background-color:var(--main-bg-color);
+  font-family: var(--font-global);
+  color : white
+}
+.App{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.prices{
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Stock div+div{
+  border-left: 0.2px solid rgb(105, 101, 101); 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Stock{
+  display: grid;
+  grid-auto-flow: column;
+  background-color: var(--card-bg-color);
+  grid-template-columns: 20% auto;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+  border: 1px solid var(--border-bg-color)
+}
+.Base{
+  min-width: 80%;
+  margin: 3rem auto;
+  display: inline-block;
+}
+#stock{
+  text-align: center;
+}
+.Stock p{
+  margin: 0;
+  padding: 1rem 0;
+  font-weight: 500;
+}
+.prices p+p{
+  border-top: 0.2px solid var(--border-bg-color);
+}
+
+.bottom-nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  gap: 2rem;
+  margin:3rem 0 0 0;
+}
+.Button{
+  background-color: var(--button-bg-color);
+  border: 1px solid var(--border-bg-color);
+  font-size: 1rem;
+  font-family: var(--font-global);
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  color: var(--card-bg-color);
+  cursor: pointer;
+}
+.Button:hover{
+  transform: scale(1.05);
+}
+.bottom-nav p{
+  margin :0;
+  font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+.Button-blocked{
+  background-color: var(--blocked-bg-color);
+}
+.Button-blocked:hover{
+  background-color: var(--blocked-bg-color);
+  transform: scale(1);
+  cursor: default;
+}
+.circleWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width:1100px) {
+    .Base{
+      width:95%;
+    }
+    .Stock{
+      grid-template-columns: 10% auto;
+    }
+}
+@media (max-width:860px) {
+  .Stock{
+    display:block;
   }
-  to {
-    transform: rotate(360deg);
+  .Base{
+    max-width: 80%;
+  }
+  .prices{
+    display:grid;
+    grid-auto-flow: column;
+    grid-template-columns: 40% 30% 30%;
+    justify-content: space-around;
+    border: 0;
+  }
+  .prices p+p{
+    border-left: 1px solid var(--border-bg-color);
+    border-top: 0;
+  }
+  .Stock div+div{
+    border-top:1px solid var(--border-bg-color);
+    border-left: 0; 
+  }
+}
+
+@media (max-width: 500px) {
+  .Base{
+    max-width: 95%;
   }
 }

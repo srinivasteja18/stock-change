@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Stock from "./stock";
-import { Circle } from "better-react-spinkit";
+import { Audio } from "react-loader-spinner";
 
 // Define the Base component
 export default function Base() {
@@ -37,7 +37,7 @@ export default function Base() {
       .catch((err) => {
         console.log(err);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array means this effect runs only once, on component mount
 
   // useEffect to update currentData when the page changes
@@ -45,7 +45,7 @@ export default function Base() {
     setCurrentData(
       data.slice((page - 1) * perPage, (page - 1) * perPage + perPage)
     ); // Update the currentData when the page changes
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]); // This effect depends on the 'page' state variable
 
   const baseCard = () => (
@@ -102,7 +102,15 @@ export default function Base() {
         baseCard()
       ) : (
         <div className="circleWrapper">
-          <Circle color="white" margin="0 auto" size={100} />
+          <Audio
+            height="150"
+            width="150"
+            radius="15"
+            color="white"
+            ariaLabel="loading"
+            wrapperStyle
+            wrapperClass
+          />
         </div>
       )}
     </>

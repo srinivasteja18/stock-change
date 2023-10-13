@@ -133,4 +133,7 @@ body{
     max-width: 95%;
     margin: 1rem 0;
   }
+  .Stock{
+    padding: 1rem;
+  }
 }
